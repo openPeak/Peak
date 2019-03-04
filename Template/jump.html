@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>提示信息</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/x-icon" href="<{ADMIN_IMG_URL}>bookshelf.png"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Refresh" content ="<?php echo $wait;?> ;url=<?php echo $url;?>"/>
+<!-- <link href="./styles/general.css" rel="stylesheet" type="text/css" />
+<link href="./styles/main.css" rel="stylesheet" type="text/css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="./layout.css"> -->
+<style type="text/css">
+  body{margin: 0px;padding: 0px;color: #192E32;font: 12px "sans-serif", "Arial", "Verdana";}
+.dis{display:block;}
+.inline{display:inline;}
+.none{display:none;}
+body{background: #FFFFFF;padding: 10px;}
+h1{background: #f2f2f2;border: 1px solid #dfd7d7;color: #9CACAF;font-size: 14px;padding: 7px 10px;margin: 0 0 10px 0;overflow:hidden;}
+h1 a:visited{color: #333;}
+h1 a:link{color: #333;}
+h1 a:hover{color: #EB8A3D;}
+h1 span{zoom:1;}
+h1 .action-span{float: right;padding-left: 10px;}
+h1 .action-span a{color: #666;font-size: 12px;font-weight: 400;text-decoration: none;display:block;padding:2px 5px 2px 23px;*padding:4px 5px 2px 23px;border:1px solid #278296;border-right:2px solid #278296;border-bottom:2px solid #278296;background:#DDEEF2 url(../images/icon_add.gif) no-repeat 3px center;*background:#DDEEF2 url(../images/icon_add.gif) no-repeat 3px 3px;}
+h1 .action-span a:hover{border:1px solid #5FA6B6;border-right:2px solid #5FA6B6;border-bottom:2px solid #5FA6B6;background:#FFF url(../images/icon_add.gif) no-repeat 3px center;*background:#FFF url(../images/icon_add.gif) no-repeat 3px 3px;color:#666;text-decoration:none;}
+h1 .action-span1{float:left;margin-top:2px;}
+.list-div{width: 100%;background: #EEF8F9;border: 1px solid #dfd7d7;}
+.list-div-ad{border: 0px solid #BBDDE5;}
+.list-div table{width: 100%;}
+.list-div th{line-height: 24px;background: #BBDDE5 url("../images/th_bg.gif") repeat-x;white-space: nowrap;}
+.list-div td{background: #FFF;line-height: 22px;}
+.list-div td.first-cell{font-weight: bold;padding-left: 10px;}
+.list-div input{vertical-align: middle;}
+.list-div a:visited, .list-div a:link{text-decoration: underline;color: green;}
+.list-div a:hover{color: lightblue;}
+.list-div input, list-div img{vertical-align: middle;}
+.list-div .footer{background: #F4FAFB;text-align: right;}
+ul.msg-link{list-style-type: none;}
+</style>
+
+</head>
+<body>
+<h1>
+<span class="action-span1"><a href="?p=admin&c=index&a=index">高校共享书吧</a> </span><span id="search_id" class="action-span1">  - 系统信息  </span>
+<div style="clear:both"></div>
+</h1>
+<div class="list-div">
+  <div style="background:#FFF; padding: 20px 50px; margin: 2px;">
+    <table align="center" width="400">
+      <tr>
+        <td width="50" valign="top">
+          <img src="<{ADMIN_IMG_URL}>warning.gif" width="32" height="32" border="0" alt="warning" /> 
+        </td>
+        <td style="font-size: 14px; font-weight: bold"><{$message}></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td id="redirectionMsg">
+          系统将在 <span id="time" style="color: red"><{$time}></span> 秒之后跳转，如果不想等待，请<a href="<{$url}>"> 点击这里 </a>跳转。
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <ul style="margin:0; padding:0 10px" class="msg-link">       
+            <li><a href=""></a></li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+</body>
+<script type="text/javascript">
+	function playsec(num){
+		// var time = document.getElementById('time');
+		time.innerHTML = num;
+		if(--num > 0){
+			setTimeout("playsec("+num+")",1000);
+		}else{
+			//跳转到指定地址
+			location.href = "<{$url}>";
+		}
+	}
+	playsec(<{$time}>);
+</script>
+</html>
